@@ -8,14 +8,14 @@ class Camioneta(models.Model):
     modelo = models.CharField(max_length=256)
     fabricacion = models.IntegerField()
     cv= models.IntegerField(blank=True)
-    peso = models.CharField(blank=True)
+    peso = models.IntegerField(blank=True)
 
 class Automovil(models.Model):
     marca = models.CharField(max_length=256)
     modelo = models.CharField(max_length=256)
     fabricacion = models.IntegerField()
     cv = models.IntegerField(blank=True)
-    peso = models.CharField(blank=True)
+    peso = models.IntegerField(blank=True)
 
 
 class Motocicleta(models.Model):
@@ -23,4 +23,4 @@ class Motocicleta(models.Model):
     modelo = models.CharField(max_length=256)
     fabricacion = models.IntegerField()
     cv = models.IntegerField(blank=True)
-    peso = models.CharField(blank=True)
+    peso = models.IntegerField(blank=True)
