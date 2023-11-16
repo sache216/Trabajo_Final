@@ -20,8 +20,8 @@ from sistema_motor.views import Bienvenida, saludar_con_html
 from app_vehiculos.views import listar_vehiculos
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("vehiculo/", include("app_vehiculos.urls")),
     #path('saludar/', Bienvenida),
-    #path('saludo-html/', saludar_con_html),
+    path('admin/', admin.site.urls),
+    path('', saludar_con_html),
+    path("vehiculos/", include("app_vehiculos.urls")),
 ]
