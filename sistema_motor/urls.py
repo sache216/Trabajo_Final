@@ -22,6 +22,6 @@ from app_vehiculos.views import listar_vehiculos
 urlpatterns = [
     #path('saludar/', Bienvenida),
     path('admin/', admin.site.urls),
-    path('', saludar_con_html),
+    path('', saludar_con_html, name="inicio"),
     path("vehiculos/", include("app_vehiculos.urls")),
 ]

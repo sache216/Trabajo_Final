@@ -13,7 +13,7 @@ def listar_vehiculos(request):
     }
     http_response = render(
         request=request,
-        template_name='base.html',
+        template_name='app_vehiculos/lista_vehiculos.html',
         context=contexto,
     )
     return http_response

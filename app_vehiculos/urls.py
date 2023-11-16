@@ -3,5 +3,5 @@ from app_vehiculos.views import listar_vehiculos
 
 
 urlpatterns = [
-   path('vehiculos/', listar_vehiculos),
+   path('vehiculos/', listar_vehiculos, name="listar_vehiculos"),
 ]
