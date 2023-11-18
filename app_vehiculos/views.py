@@ -1,21 +1,38 @@
 from django.shortcuts import render
+from app_vehiculos.models import Camioneta, Automovil, Motocicleta
 
 # Create your views here.
 
-def listar_vehiculos(request):
+def listar_camioneta(request):
     contexto = {
-        "vehiculos": [
-            {"Marca": "Audi", "Modelo": "A8", "fabricacion":2023,"CV": 286},
-            {"Marca": "BMW", "Modelo": "X7", "fabricacion":2022,"CV": 352},
-            {"Marca": "Mazda", "Modelo": "RX7", "fabricacion":1999,"CV": 265},
-            {"Marca": "Toyota", "Modelo": "Corola", "fabricacion":2003,"CV": 131},
-        ]
+        "vehiculos": Camioneta.objects.all()
     }
     http_response = render(
         request=request,
-        template_name='base.html',
+        template_name='app_vehiculos/lista_vehiculos.html',
         context=contexto,
     )
     return http_response
 
 
+def listar_automovil(request):
+    contexto = {
+        "vehiculos": Automovil.objects.all()
+    }
+    http_response = render(
+        request=request,
+        template_name='app_vehiculos/lista_vehiculos.html',
+        context=contexto,
+    )
+    return http_response
+
+def listar_motocicleta(request):
+    contexto = {
+        "vehiculos": Motocicleta.objects.all()
+    }
+    http_response = render(
+        request=request,
+        template_name='app_vehiculos/lista_vehiculos.html',
+        context=contexto,
+    )
+    return http_response

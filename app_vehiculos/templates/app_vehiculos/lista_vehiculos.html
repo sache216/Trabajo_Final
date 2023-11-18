@@ -1,24 +1,21 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Lista vehiculos</title>
-    <meta name="description" content="Our first page">
-    <meta name="keywords" content="html tutorial template">
-  </head>
-  <body>
-    <h1>
-      Bienvenidos
-    </h1>
 
-    <h3>Vehiculos inscritos:</h3>
-    <ul>
-    {% for vehiculo in vehiculos %}
-        <li>
-        {{ vehiculo.Marca }}, {{ vehiculo.Modelo }}
-        </li>
-    {% endfor %}
-    </ul>
+{% extends "base.html" %}
 
-  </body>
-</html>
+{% block titulo %}
+<title>Motorboat - Vehiculos</title>
+{% endblock titulo %}
 
+{% block contenido %}
+<h1>
+     Bienvenidos:
+</h1>
+
+<h3>Vehiculos inscritos:</h3>
+<ul>
+  {% for vehiculo in vehiculos %}
+<li>
+    {{ vehiculo.marca }}, {{ vehiculo.modelo }}
+</li>
+  {% endfor %}
+</ul>
+{% endblock contenido %}
