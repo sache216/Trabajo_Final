@@ -7,15 +7,15 @@
 
 {% block contenido %}
 <h1>
-  Bienvenidos:
+     Bienvenidos:
 </h1>
 
 <h3>Vehiculos inscritos:</h3>
 <ul>
   {% for vehiculo in vehiculos %}
-  <li>
-    {{ vehiculo.Marca }}, {{ vehiculo.Modelo }}
-  </li>
+<li>
+    {{ vehiculo.marca }}, {{ vehiculo.modelo }}
+</li>
   {% endfor %}
 </ul>
 {% endblock contenido %}

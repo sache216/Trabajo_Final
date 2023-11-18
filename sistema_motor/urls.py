@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from sistema_motor.views import Bienvenida, saludar_con_html
-from app_vehiculos.views import listar_vehiculos
+from app_vehiculos.views import listar_camioneta, listar_automovil, listar_motocicleta
 
 urlpatterns = [
     #path('saludar/', Bienvenida),

@@ -9,6 +9,9 @@ class Camioneta(models.Model):
     fabricacion = models.IntegerField()
     cv= models.IntegerField(blank=True)
     peso = models.IntegerField(blank=True)
+    
+    def __str__(self):
+        return f"{self.marca} ({self.modelo})"
 
 class Automovil(models.Model):
     marca = models.CharField(max_length=256)
@@ -16,6 +19,9 @@ class Automovil(models.Model):
     fabricacion = models.IntegerField()
     cv = models.IntegerField(blank=True)
     peso = models.IntegerField(blank=True)
+    
+    def __str__(self):
+        return f"{self.marca} ({self.modelo})"
 
 
 class Motocicleta(models.Model):
@@ -24,3 +30,6 @@ class Motocicleta(models.Model):
     fabricacion = models.IntegerField()
     cv = models.IntegerField(blank=True, null=True)
     peso = models.IntegerField(blank=True, null=True)
+    
+    def __str__(self):
+        return f"{self.marca} ({self.modelo})"
