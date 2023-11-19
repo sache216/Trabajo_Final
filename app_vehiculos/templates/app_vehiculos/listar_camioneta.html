@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block titulo %}
-<title>Motorboat - Vehiculos</title>
+<title>Motorboat - Camionetas</title>
 {% endblock titulo %}
 
 {% block contenido %}
@@ -10,11 +10,11 @@
    Bienvenidos:
 </h1>
 
-<h3>Vehiculos inscritos:</h3>
+<h3>Camionetas</h3>
 <ul>
   {% for vehiculo in vehiculos %}
 <li>
-    {{ vehiculo.marca }}, {{ vehiculo.modelo }}, {{ vehiculo.fabricacion }}, {{ vehiculo.cv }}, {{ vehiculo.peso }}
+    {{ vehiculo.marca }}, {{ vehiculo.modelo }}, {{ vehiculo.fabricacion }}, {{ vehiculo.cv }},{{ vehiculo.peso }}
 </li>
   {% endfor %}
 </ul>
