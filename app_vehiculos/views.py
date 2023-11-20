@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.db.models import Q
 from app_vehiculos.models import Camioneta, Automovil, Motocicleta
 from app_vehiculos.forms import MotocicletaFormulario, CamionetaFormulario, AutomovilFormulario
 
@@ -11,7 +12,7 @@ def listar_camioneta(request):
     }
     http_response = render(
         request=request,
-        template_name='app_vehiculos/lista_vehiculos.html',
+        template_name='app_vehiculos/listar_camioneta.html',
         context=contexto,
     )
     return http_response
@@ -23,7 +24,7 @@ def listar_automovil(request):
     }
     http_response = render(
         request=request,
-        template_name='app_vehiculos/lista_vehiculos.html',
+        template_name='app_vehiculos/listar_auto.html',
         context=contexto,
     )
     return http_response
@@ -34,7 +35,7 @@ def listar_motocicleta(request):
     }
     http_response = render(
         request=request,
-        template_name='app_vehiculos/lista_vehiculos.html',
+        template_name='app_vehiculos/listar_motos.html',
         context=contexto,
     )
     return http_response
@@ -116,3 +117,55 @@ def crear_motocicleta(request):
        context={'formulario': formulario}
    )
    return http_response
+
+
+def buscar_camionetas(request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data["busqueda"]
+        camionetas = Camioneta.objects.filter(
+            Q(marca__icontains=busqueda) | Q(modelo__contains=busqueda)
+        )
+        contexto = {
+            "vehiculos": camionetas,
+        }
+        http_response = render(
+            request=request,
+            template_name='app_vehiculos/listar_camioneta.html',
+            context=contexto,
+        )
+        return http_response
+    
+def buscar_automoviles(request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data["busqueda"]
+        autos = Automovil.objects.filter(
+            Q(marca__icontains=busqueda) | Q(modelo__contains=busqueda)
+        )
+        contexto = {
+            "vehiculos": autos,
+        }
+        http_response = render(
+            request=request,
+            template_name='app_vehiculos/listar_auto.html',
+            context=contexto,
+        )
+        return http_response
+    
+def buscar_motocicletas(request):
+    if request.method == "POST":
+        data = request.POST
+        busqueda = data["busqueda"]
+        motos = Motocicleta.objects.filter(
+            Q(marca__icontains=busqueda) | Q(modelo__contains=busqueda)
+        )
+        contexto = {
+            "vehiculos": motos, 
+        }
+        http_response = render(
+            request=request,
+            template_name='app_vehiculos/listar_motos.html',
+            context=contexto,
+        )
+        return http_response
