@@ -17,11 +17,26 @@
   <input type="submit" value="Buscar por marca">
 </form>
 <br>
-<ul>
-  {% for vehiculo in vehiculos %}
-  <li>
-    {{ vehiculo.marca }}, {{ vehiculo.modelo }}, {{ vehiculo.fabricacion }}, {{ vehiculo.cv }},{{ vehiculo.peso }}
-  </li>
-{% endfor %}
-</ul>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ID</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Fabricacion(año)</th>
+      <th>CV</th>
+      <th>Peso(Kg)</th>
+    </tr>
+    {% for vehiculo in vehiculos %}
+    <tr>
+      <td>{{ vehiculo.id }}</td>
+      <td>{{ vehiculo.marca }}</td>
+      <td>{{ vehiculo.modelo }}</td>
+      <td>{{ vehiculo.fabricacion }}</td>
+      <td>{{ vehiculo.cv }}</td>
+      <td>{{ vehiculo.peso }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock contenido %}
