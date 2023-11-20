@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.db.models import Q
+from django.views.generic import DetailView
 from app_vehiculos.models import Camioneta, Automovil, Motocicleta
 from app_vehiculos.forms import MotocicletaFormulario, CamionetaFormulario, AutomovilFormulario
 
@@ -303,3 +304,16 @@ def editar_motocicleta(request, id):
         template_name='app_vehiculos/formulario_motocicleta.html',
         context={'formulario': formulario},
     )
+    
+    
+class CamionetaDetailView(DetailView):
+    model = Camioneta
+    success_url = reverse_lazy('listar_camioneta')
+    
+class AutomovilDetailView(DetailView):
+    model = Automovil
+    success_url = reverse_lazy('listar_auto')
+    
+class MotocicletaDetailView(DetailView):
+    model = Motocicleta
+    success_url = reverse_lazy('listar_motos')

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<p>
+ <strong>Marca:</strong> {{ object.marca }}
+</p>
+<p>
+ <strong>Modelo:</strong> {{ object.modelo }}
+</p>
+<p>
+ <strong>Fabricacion:</strong> {{ object.fabricacion }}
+</p>
+<p>
+ <strong>CV:</strong> {{ object.cv }}
+</p>
+<p>
+ <strong>Peso:</strong> {{ object.peso }}
+</p>
+
+<br>
+<a href="{% url 'listar_camionetas' %}">Volver a la lista</a>
+<a href="{% url 'editar_camioneta' object.id %}">Editar</a>
+
+{% endblock contenido %}

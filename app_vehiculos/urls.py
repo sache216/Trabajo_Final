@@ -2,7 +2,7 @@ from django.urls import path
 from app_vehiculos.views import (
  listar_camioneta, listar_automovil, listar_motocicleta, crear_camioneta, crear_automovil,
  crear_motocicleta, buscar_camionetas, buscar_automoviles, buscar_motocicletas, eliminar_motocicleta,
- eliminar_camioneta, eliminar_automovil, editar_camioneta, editar_automovil, editar_motocicleta
+ eliminar_camioneta, eliminar_automovil, editar_camioneta, editar_automovil, editar_motocicleta, CamionetaDetailView, AutomovilDetailView, MotocicletaDetailView
 )
 
 
@@ -26,6 +26,10 @@ urlpatterns = [
    path('editar-camioneta/<int:id>/', editar_camioneta, name="editar_camioneta"),
    path('editar-automovil/<int:id>/', editar_automovil, name="editar_automovil"),
    path('editar-motocicleta/<int:id>/', editar_motocicleta, name="editar_motocicleta"),
+   
+   path("camionetas/<int:pk>/", CamionetaDetailView.as_view(), name="ver_camioneta"),
+   path("automovil/<int:pk>/", AutomovilDetailView.as_view(), name="ver_automovil"),
+   path("motocicleta/<int:pk>/", MotocicletaDetailView.as_view(), name="ver_motocicleta"),
 
 
 ]

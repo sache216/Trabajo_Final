@@ -40,6 +40,9 @@
       <td>{{ vehiculo.cv }}</td>
       <td>{{ vehiculo.peso }}</td>
       <td>
+        <a href="{% url 'ver_motocicleta' vehiculo.id %}">Ver</a>
+      </td>
+      <td>
         <a href="{% url 'editar_motocicleta' vehiculo.id %}">Editar</a>
       </td> 
       <td>
