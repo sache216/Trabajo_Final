@@ -17,7 +17,6 @@ def listar_camioneta(request):
     )
     return http_response
 
-
 def listar_automovil(request):
     contexto = {
         "vehiculos": Automovil.objects.all()
@@ -118,7 +117,6 @@ def crear_motocicleta(request):
    )
    return http_response
 
-
 def buscar_camionetas(request):
     if request.method == "POST":
         data = request.POST
@@ -169,3 +167,24 @@ def buscar_motocicletas(request):
             context=contexto,
         )
         return http_response
+    
+def eliminar_motocicleta(request, id): #borra sin confirmacion
+   motocicleta = Motocicleta.objects.get(id=id)
+   if request.method == "POST":
+       motocicleta.delete()
+       url_exitosa = reverse('listar_motocicletas')
+       return redirect(url_exitosa)
+   
+def eliminar_camioneta(request, id): #borra sin confirmacion
+   camioneta = Camioneta.objects.get(id=id)
+   if request.method == "POST":
+       camioneta.delete()
+       url_exitosa = reverse('listar_camionetas')
+       return redirect(url_exitosa)
+   
+def eliminar_automovil(request, id): #borra sin confirmacion
+   automovil = Automovil.objects.get(id=id)
+   if request.method == "POST":
+       automovil.delete()
+       url_exitosa = reverse('listar_automoviles')
+       return redirect(url_exitosa)
