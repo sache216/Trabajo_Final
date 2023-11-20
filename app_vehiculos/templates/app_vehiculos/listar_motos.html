@@ -27,6 +27,7 @@
       <th>CV</th>
       <th>Peso (Kg)</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -38,6 +39,9 @@
       <td>{{ vehiculo.fabricacion }}</td>
       <td>{{ vehiculo.cv }}</td>
       <td>{{ vehiculo.peso }}</td>
+      <td>
+        <a href="{% url 'editar_motocicleta' vehiculo.id %}">Editar</a>
+      </td> 
       <td>
         <form action="{% url 'eliminar_motocicleta' vehiculo.id %}" method="post">
           {% csrf_token %}
