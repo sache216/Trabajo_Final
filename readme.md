@@ -26,3 +26,5 @@ username:admin1
 contraseña:1234abcd
 
 # Usuarios normales
+username: jhonflores
+contraseña: jhon1234
