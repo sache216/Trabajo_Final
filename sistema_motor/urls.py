@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', saludar_con_html, name="inicio"),
     path("vehiculos/", include("app_vehiculos.urls")),
+    path("perfiles/", include("perfiles.urls")),
 ]
