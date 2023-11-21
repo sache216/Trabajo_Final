@@ -323,7 +323,7 @@ class MotocicletaDetailView(DetailView):
     
 class CamionetaDeleteView(DeleteView):
     model = Camioneta
-    success_url = reverse_lazy('listar_camioneta')
+    success_url = reverse_lazy('listar_camionetas')
     
     
 class AutomovilDeleteView(DeleteView):
