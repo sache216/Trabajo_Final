@@ -54,7 +54,7 @@ def crear_camioneta(request):
            fabricacion = data["fabricacion"]
            cv = data["cv"]
            peso = data["peso"]
-           camioneta = Camioneta(marca=data['marca'], modelo=data['modelo'],fabricacion=data['fabricacion'], cv=data['cv'], peso=data['peso'])
+           camioneta = Camioneta(marca=data['marca'], modelo=data['modelo'],fabricacion=data['fabricacion'], cv=data['cv'], peso=data['peso'], creador=request.user)
            camioneta.save()  # Lo guardan en la Base de datos
 
            # Redirecciono al usuario a la lista de cursos
@@ -81,7 +81,7 @@ def crear_automovil(request):
            fabricacion = data["fabricacion"]
            cv = data["cv"]
            peso = data["peso"]
-           automovil = Automovil(marca=data['marca'], modelo=data['modelo'],fabricacion=data['fabricacion'], cv=data['cv'], peso=data['peso'])
+           automovil = Automovil(marca=data['marca'], modelo=data['modelo'],fabricacion=data['fabricacion'], cv=data['cv'], peso=data['peso'], creador=request.user)
            automovil.save()  # Lo guardan en la Base de datos
 
            # Redirecciono al usuario a la lista de cursos
@@ -108,7 +108,7 @@ def crear_motocicleta(request):
            fabricacion = data["fabricacion"]
            cv = data["cv"]
            peso = data["peso"]
-           motocicleta = Motocicleta(marca=data['marca'], modelo=data['modelo'],fabricacion=data['fabricacion'], cv=data['cv'], peso=data['peso'])
+           motocicleta = Motocicleta(marca=data['marca'], modelo=data['modelo'],fabricacion=data['fabricacion'], cv=data['cv'], peso=data['peso'],creador=request.user)
            motocicleta.save()  # Lo guardan en la Base de datos
 
            # Redirecciono al usuario a la lista de cursos
