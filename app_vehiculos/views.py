@@ -4,9 +4,10 @@ from django.db.models import Q
 from django.views.generic import DetailView, DeleteView
 from app_vehiculos.models import Camioneta, Automovil, Motocicleta
 from app_vehiculos.forms import MotocicletaFormulario, CamionetaFormulario, AutomovilFormulario
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-
 def listar_camioneta(request):
     contexto = {
         "vehiculos": Camioneta.objects.all()
@@ -29,6 +30,7 @@ def listar_automovil(request):
     )
     return http_response
 
+
 def listar_motocicleta(request):
     contexto = {
         "vehiculos": Motocicleta.objects.all()
@@ -40,6 +42,7 @@ def listar_motocicleta(request):
     )
     return http_response
 
+@login_required
 def crear_camioneta(request):
    if request.method == "POST":
        formulario = CamionetaFormulario(request.POST)
@@ -66,6 +69,7 @@ def crear_camioneta(request):
    )
    return http_response
 
+@login_required
 def crear_automovil(request):
    if request.method == "POST":
        formulario = AutomovilFormulario(request.POST)
@@ -92,6 +96,7 @@ def crear_automovil(request):
    )
    return http_response
 
+@login_required
 def crear_motocicleta(request):
    if request.method == "POST":
        formulario = MotocicletaFormulario(request.POST)
@@ -168,21 +173,26 @@ def buscar_motocicletas(request):
             context=contexto,
         )
         return http_response
-    
+
+
+@login_required    
 def eliminar_motocicleta(request, id): #borra sin confirmacion
    motocicleta = Motocicleta.objects.get(id=id)
    if request.method == "POST":
        motocicleta.delete()
        url_exitosa = reverse('listar_motocicletas')
        return redirect(url_exitosa)
-   
+ 
+
+@login_required  
 def eliminar_camioneta(request, id): #borra sin confirmacion
    camioneta = Camioneta.objects.get(id=id)
    if request.method == "POST":
        camioneta.delete()
        url_exitosa = reverse('listar_camionetas')
        return redirect(url_exitosa)
-   
+ 
+@login_required  
 def eliminar_automovil(request, id): #borra sin confirmacion
    automovil = Automovil.objects.get(id=id)
    if request.method == "POST":
@@ -191,6 +201,7 @@ def eliminar_automovil(request, id): #borra sin confirmacion
        return redirect(url_exitosa)
 
 
+@login_required
 def editar_camioneta(request, id):
     # Obtener la instancia de la camioneta con el ID proporcionado
     camioneta = Camioneta.objects.get(id=id)
@@ -228,7 +239,8 @@ def editar_camioneta(request, id):
         template_name='app_vehiculos/formulario_camioneta.html',
         context={'formulario': formulario},
     )
-    
+ 
+@login_required   
 def editar_automovil(request, id):
     # Obtener la instancia de la automovil con el ID proporcionado
     automovil = Automovil.objects.get(id=id)
@@ -266,7 +278,8 @@ def editar_automovil(request, id):
         template_name='app_vehiculos/formulario_automovil.html',
         context={'formulario': formulario},
     )
-    
+   
+@login_required 
 def editar_motocicleta(request, id):
     # Obtener la instancia de la motocicleta con el ID proporcionado
     motocicleta = Motocicleta.objects.get(id=id)
