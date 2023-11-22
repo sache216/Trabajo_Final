@@ -44,13 +44,17 @@
         <a href="{% url 'ver_camioneta' vehiculo.id %}">Ver</a>
       </td>
       <td>
+        {% if user == vehiculo.creador %}
         <a href="{% url 'editar_camioneta' vehiculo.id %}">Editar</a>
+        {% endif %}
       </td> 
       <td>
+        {% if user == vehiculo.creador %}
         <form action="{% url 'eliminar_camioneta' vehiculo.id %}" method="post">
           {% csrf_token %}
           <input type="submit" value="Eliminar"/>
         </form>
+        {% endif %}
       </td>
     </tr>
     {% endfor %}
