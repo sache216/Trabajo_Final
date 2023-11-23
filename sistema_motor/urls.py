@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from sistema_motor.views import Bienvenida, saludar_con_html
+from django.conf import settings
+from django.conf.urls.static import static
 #from app_vehiculos.views import listar_camioneta, listar_automovil, listar_motocicleta
 
 urlpatterns = [
@@ -26,3 +28,5 @@ urlpatterns = [
     path("vehiculos/", include("app_vehiculos.urls")),
     path("perfiles/", include("perfiles.urls")),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -22,18 +22,14 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="btn btn-outline-warning" href="index.html">MOTORBOAT</a>
+                    <a class="btn btn-outline-warning" href="{% url 'inicio' %}">MOTORBOAT</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
                             <li class="nav-item"><a class="btn btn-outline-warning" href="{% url 'inicio' %}">Inicio</a></li>
                             <li class="nav-item"><a class="btn btn-outline-warning" href="about.html">About</a></li>
                             {% if user.is_authenticated %}
-                            <a class="btn btn-warning btn-lg px-4 me-sm-3" href="{% url 'logout' %}">Cerrar Sesión</a>
-                            {% else %}
-                            <a class="btn btn-outline-warning" href="{% url 'login' %}">Inicio sesión</a>
-                            <a class="btn btn-outline-warning" href="{% url 'registro' %}">Registro</a>
-                            {% endif %}
+                            <div class="dropdown">
                         </div>
                             <li class="nav-item dropdown">
                                 <a class="btn btn-outline-warning" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Lista de articulos</a>
@@ -53,6 +49,28 @@
                             </li>
                         </ul>
                     </div>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div style="display: inline-flex;">
+                            <img src="{{user.avatar.imagen.url}}" style="max-width:40px;margin-right: 10px;">
+                            <span>{{ user.username }}</span>
+                        </div>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar mis datos</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'agregar_avatar' %}">Agregar avatar</a>
+                        </li>    
+                        <li>
+                            <a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a>
+                        </li>
+                    </ul>
+                </div>
+                {% else %}
+                <a class="btn btn-outline-warning" href="{% url 'login' %}">Inicio sesión</a>
+                <a class="btn btn-outline-warning" href="{% url 'registro' %}">Registro</a>
+                {% endif %}
                 </div>
             </nav>
             <!-- Header-->
@@ -172,22 +190,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Call to action-->
-                    <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
-                        <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-                            <div class="mb-4 mb-xl-0">
-                                <div class="fs-3 fw-bold text-white">New products, delivered to you.</div>
-                                <div class="text-white-50">Sign up for our newsletter for the latest updates.</div>
-                            </div>
-                            <div class="ms-xl-4">
-                                <div class="input-group mb-2">
-                                    <input class="form-control" type="text" placeholder="Email address..." aria-label="Email address..." aria-describedby="button-newsletter" />
-                                    <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign up</button>
-                                </div>
-                                <div class="small text-white-50">We care about privacy, and will never share your data.</div>
                             </div>
                         </div>
                     </aside>

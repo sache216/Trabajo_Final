@@ -13,7 +13,7 @@ class Camioneta(models.Model):
     creador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
-        return f"{self.marca} ({self.modelo})"
+        return f"{self.marca} {self.modelo} ({self.fabricacion})({self.cv})({self.peso})"
 
 class Automovil(models.Model):
     marca = models.CharField(max_length=256)
@@ -24,7 +24,7 @@ class Automovil(models.Model):
     creador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
-        return f"{self.marca} ({self.modelo})"
+        return f"{self.marca} {self.modelo} ({self.fabricacion})({self.cv})({self.peso})"
 
 
 class Motocicleta(models.Model):
@@ -36,4 +36,4 @@ class Motocicleta(models.Model):
     creador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
-        return f"{self.marca} ({self.modelo})"
+        return f"{self.marca} {self.modelo} ({self.fabricacion})({self.cv})({self.peso})"
