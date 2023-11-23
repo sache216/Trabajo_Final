@@ -1,11 +1,14 @@
-from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
-from django.contrib.auth.models import User
+from perfiles.forms import UserRegisterForm
+from perfiles.forms import UserRegisterForm, UserUpdateForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
+from django.views.generic import UpdateView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LogoutView
-from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from perfiles.forms import UserRegisterForm
 
 
 def registro(request):
@@ -53,3 +56,12 @@ def login_view(request):
     )
 class CustomLogoutView(LogoutView):
    template_name = 'perfiles/logout.html'
+
+
+class MiPerfilUpdateView(LoginRequiredMixin, UpdateView):
+   form_class = UserUpdateForm
+   success_url = reverse_lazy('inicio')
+   template_name = 'perfiles/formulario_perfil.html'
+
+   def get_object(self, queryset=None):
+       return self.request.user
