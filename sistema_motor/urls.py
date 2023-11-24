@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from sistema_motor.views import Bienvenida, saludar_con_html
+from sistema_motor.views import Bienvenida, saludar_con_html, bienvenidav2
 from django.conf import settings
 from django.conf.urls.static import static
 #from app_vehiculos.views import listar_camioneta, listar_automovil, listar_motocicleta
@@ -27,6 +27,7 @@ urlpatterns = [
     path('', saludar_con_html, name="inicio"),
     path("vehiculos/", include("app_vehiculos.urls")),
     path("perfiles/", include("perfiles.urls")),
+    path('iniciov2/', bienvenidav2, name="iniciov2"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

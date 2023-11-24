@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titulo %}
+    <title>Motorboat - Inicio</title>
+    {% endblock titulo %}
+    {% block contenido %}
+    <style>
+        .centrar {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* 100% del viewport height para centrar verticalmente */
+        }
+    </style>
+</head>
+<body>
+    <div class="centrar">
+        <p>
+            <br>Hola, me presento, mi nombre es Juan Flores, actualmente me encuentro viviendo en Cordoba (Argentina)</br>
+            <br>y me propuse este año aprender sobre programacion ya que fue algo que siempre llamo mi atencion.</br>
+            <br>Termino este año sabiendo que encontre un nuevo Hobby y viendo que justamente para finalizar el curso de Python</br>
+            <br>nos pedian crear un pagina web donde pudieramos plasmar todos los conocimientos adquiridos, </br>
+            <br>esto me llevo a pensar en muchas tematicas diferentes pero pude encontrar la que para mi termino siendo la mas entretenida</br>
+            <br>los motores, espero les guste lo que ven.</br>
+            <br>¡Saludos!</br>
+        
+            <b>Atte Juan Flores</b></p>
+    </div>
+</body>
+</html>
+{% endblock contenido %}
