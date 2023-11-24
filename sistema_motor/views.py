@@ -14,3 +14,14 @@ def saludar_con_html(request):
         context=contexto,
     )
     return http_response
+
+
+
+def bienvenidav2(request):
+    contexto = {}
+    http_response = render(
+        request=request,
+        template_name='iniciov2.html',
+        context=contexto,
+    )
+    return http_response

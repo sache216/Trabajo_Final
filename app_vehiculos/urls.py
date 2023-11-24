@@ -35,6 +35,7 @@ urlpatterns = [
    path("eliminar-camioneta/<int:pk>/", CamionetaDeleteView.as_view(), name="eliminar_camioneta"),
    path("eliminar-automovil/<int:pk>/", AutomovilDeleteView.as_view(), name="eliminar_automovil"),
    path("eliminar-motocicleta/<int:pk>/", MotocicletaDeleteView.as_view(), name="eliminar_motocicleta"),
+   
 
 
 ]
